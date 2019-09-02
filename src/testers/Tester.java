@@ -13,7 +13,7 @@ public class Tester {
 	}
 
 	public static void main(String[] args) {
-		int size = 1;
+		int size = 3;
 		RandomNumberGenerator r = new RandomNumberGenerator(size);
 		List<Integer> randomNumbers = r.getRandomNumbers();
 		List<Number> numberList = new ArrayList<Number>();
@@ -23,6 +23,7 @@ public class Tester {
 			n.findPrimeFactors();
 			print("Value: " + n.getValue());
 			print("Prime factors: " + print(n.getPrimeFactorList()));
+			numberList.add(n);
 		}
 		
 	}
