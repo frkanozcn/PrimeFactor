@@ -1,12 +1,14 @@
 package types;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Number {
 
 	private int value;
 	private List<PrimeFactor> primeFactorList;
+	private HashMap<Integer, List<PrimeFactor>> primeFactorMap;
 
 	public Number() {
 		this.value = 0;
@@ -36,6 +38,14 @@ public class Number {
 
 	public void setPrimeFactorList(List<PrimeFactor> primeFactorList) {
 		this.primeFactorList = primeFactorList;
+	}
+
+	public HashMap<Integer,List<PrimeFactor>> getPrimeFactorMap() {
+		return primeFactorMap;
+	}
+
+	public void setPrimeFactorMap(HashMap<Integer, List<PrimeFactor>> primeFactorMap) {
+		this.primeFactorMap = primeFactorMap;
 	}
 
 	public void findPrimeFactors() {
