@@ -8,16 +8,17 @@ public class Number {
 
 	private int value;
 	private List<PrimeFactor> primeFactorList;
-	private HashMap<Integer, List<PrimeFactor>> primeFactorMap;
+	private HashMap<Integer, Integer> primeFactorMap;
 
 	public Number() {
 		this.value = 0;
 		this.primeFactorList = new ArrayList<PrimeFactor>();
+		this.primeFactorMap = new HashMap<Integer, Integer>();
 	}
 
 	public Number(int value) {
 		this.value = value;
-		this.primeFactorList = new ArrayList<PrimeFactor>();
+		findPrimeFactors();
 	}
 
 	public Number(List<PrimeFactor> primeFactorList) {
@@ -40,11 +41,11 @@ public class Number {
 		this.primeFactorList = primeFactorList;
 	}
 
-	public HashMap<Integer,List<PrimeFactor>> getPrimeFactorMap() {
+	public HashMap<Integer, Integer> getPrimeFactorMap() {
 		return primeFactorMap;
 	}
 
-	public void setPrimeFactorMap(HashMap<Integer, List<PrimeFactor>> primeFactorMap) {
+	public void setPrimeFactorMap(HashMap<Integer, Integer> primeFactorMap) {
 		this.primeFactorMap = primeFactorMap;
 	}
 
@@ -72,7 +73,8 @@ public class Number {
 			currFactor++;
 		}
 		setPrimeFactorList(primeFactorList);
-		
+		this.primeFactorMap = new HashMap<Integer, Integer>();
+		primeFactorList.forEach((pf) -> this.primeFactorMap.put(pf.getValue(), pf.getPower()));
 	}
 
 	private int getFactorPower(int number, int factor) {

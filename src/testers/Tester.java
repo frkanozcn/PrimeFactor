@@ -5,6 +5,7 @@ import java.util.List;
 
 import types.Number;
 import types.PrimeFactor;
+import utils.GCF;
 import utils.RandomNumberGenerator;
 
 public class Tester {
@@ -13,19 +14,23 @@ public class Tester {
 	}
 
 	public static void main(String[] args) {
-		int size = 3;
+		///*
+		int size = 2;
 		RandomNumberGenerator r = new RandomNumberGenerator(size);
 		List<Integer> randomNumbers = r.getRandomNumbers();
 		List<Number> numberList = new ArrayList<Number>();
-		for (int i = 0; i < size; i++) {
-			Number n = new Number();
-			n.setValue(randomNumbers.get(i));
-			n.findPrimeFactors();
+		for (Integer randomNumber : randomNumbers) {
+			Number n = new Number(randomNumber);
 			print("Value: " + n.getValue());
 			print("Prime factors: " + print(n.getPrimeFactorList()));
 			numberList.add(n);
 		}
-		
+		GCF gcf = new GCF(numberList);
+		List<PrimeFactor> primeFactors = gcf.getPrimeFactors();
+		print("GCF: ");
+		//primeFactors.forEach((pf) -> print(pf.getValue() + "^" + pf.getPower()));
+		print(print(primeFactors));
+		print(gcf.getGcf());
 	}
 	
 	private static void print(Object s) {
@@ -33,7 +38,7 @@ public class Tester {
 	}
 	
 	private static String print(List<PrimeFactor> primeFactors) {
-		String output = "";
+		String output = "1";
 		if (primeFactors == null || primeFactors.isEmpty()) {
 			return output;
 		}
