@@ -6,6 +6,7 @@ import java.util.List;
 import types.Number;
 import types.PrimeFactor;
 import utils.GCF;
+import utils.LCM;
 import utils.RandomNumberGenerator;
 
 public class Tester {
@@ -25,12 +26,22 @@ public class Tester {
 			print("Prime factors: " + print(n.getPrimeFactorList()));
 			numberList.add(n);
 		}
+		/** GCF */
+		/*
 		GCF gcf = new GCF(numberList);
 		List<PrimeFactor> primeFactors = gcf.getPrimeFactors();
 		print("GCF: ");
 		//primeFactors.forEach((pf) -> print(pf.getValue() + "^" + pf.getPower()));
 		print(print(primeFactors));
 		print(gcf.getGcf());
+		*/
+		LCM lcm = new LCM(numberList);
+		List<PrimeFactor> primeFactors = lcm.getPrimeFactors();
+		print("LCM: ");
+		//primeFactors.forEach((pf) -> print(pf.getValue() + "^" + pf.getPower()));
+		print(print(primeFactors));
+		print(lcm.getLcm());
+		//*/
 	}
 	
 	private static void print(Object s) {
